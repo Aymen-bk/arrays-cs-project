@@ -48,10 +48,10 @@ public class CourseNumbersArray {
         //4 tests
         int c = 2140;
         boolean b = containsCourse(updatedCourses, c);
-        System.out.println("Contains course " + c + "? : " +b);
+        System.out.println("Contains course " + c + " ? : " +b);
 
         c = 3000;
         b = containsCourse(updatedCourses, c);
-        System.out.println("Contains course " + c + "? : " +b);
+        System.out.println("Contains course " + c + " ? : " +b);
     }
 }
