@@ -1,29 +1,50 @@
-package samplearrays;
-
 public class BankAccount {
 
-    String name;
     double currentBalance;
-    //TO-DO: Initialize an Array with 1000 in size that stores Double called 'transactions' to keep track of the user's transactions
+    double[] transactions = new double[1000];
+    int transactionCount = 0;
 
     public BankAccount(String name, int startingBalance){
-
+        this.currentBalance = startingBalance;
+        if (transactionCount < transactions.length) {transactions[transactionCount++] = startingBalance;}
     }
 
     public void deposit(double amount){
-
+        if (amount > 0) {
+            currentBalance += amount;
+            if (transactionCount < transactions.length) {transactions[transactionCount++] = amount;}
+            System.out.println("Deposited: " + amount);
+        }
+        else {System.out.println("invalid deposit amount: " + amount);}
     }
 
     public void withdraw(double amount){
+        if (amount > 0 && amount <= currentBalance)
+        {
+            currentBalance -= amount;
+            if (transactionCount < transactions.length) {transactions[transactionCount++] = -amount;} //negative value
 
+            System.out.println("Withdrawn: " + amount);
+        }
+
+        else if (amount <= 0) {System.out.println("invalid withdrawal amount: " + amount);}
+
+        else {System.out.println("insufficient funds for withdrawal: " + amount);}
     }
 
     public void displayTransactions(){
+        System.out.println("Transactions:");
+        for (int i = 0; i < transactionCount; i++)
 
+        {
+            if (i == 0) { System.out.println("Initial Balance: " + transactions[i]);}
+            else if (transactions[i] > 0) {System.out.println("Deposit: " + transactions[i]);}
+            else {System.out.println("Withdrawal: " + Math.abs(transactions[i]));}
+        }
     }
 
     public void displayBalance(){
-
+        System.out.println("Current Balance: " + currentBalance);
     }
 
     public static void main(String[] args) {
@@ -45,5 +66,4 @@ public class BankAccount {
         // ----- DO NOT CHANGE -----
 
     }
-
 }
