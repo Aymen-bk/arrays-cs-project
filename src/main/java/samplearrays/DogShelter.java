@@ -1,9 +1,21 @@
-package samplearrays;
+public class DogShelter  {
+    public static int[] dogCounts = {5,10,12,7};
 
-public class DogShelter {
+    public static void displayDogs(){
+        for (int i=0;i<dogCounts.length;i++){
+            System.out.println("Breed " +i +" has "+dogCounts[i]+" dogs");
+        }
+    }
 
-    // initialize an array of 3
+    public static void addBreed(int breed, int count){
+        if (breed >= 0 && breed < dogCounts.length) {dogCounts[breed] += count;}
+        else {System.out.println("Invalid breed : " + breed);}
+    }
 
+    public static void deleteBreed(int breed){
+        if (breed >= 0 && breed < dogCounts.length) {dogCounts[breed] = 0;}
+        else {System.out.println("Invalid breed : " + breed);}
+    }
 
     public static void main(String[] args) {
 
@@ -26,22 +38,4 @@ public class DogShelter {
         System.out.println("\nUpdated Dog Counts:");
         displayDogs();
     }
-
-    // Add count to a given index
-    public static void addBreed(int index, int count) {
-        // add you code here
-    }
-
-    // Remove a breed by setting its count to 0
-    public static void deleteBreed(int index) {
-        // add your code here
-    }
-
-    // Display all dog counts
-    public static void displayDogs() {
-        // add your code
-          //  System.out.println("Breed " + i + " has " + dogCounts[i] + " dogs.");
-
-    }
 }
-
